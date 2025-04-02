@@ -30,6 +30,7 @@
       wasm-pack
       cargo-expand
       cargo-flamegraph
+      docker
       docker-compose
       kubernetes
 
@@ -65,7 +66,7 @@
       enable = true;
       enableBashIntegration = true;
     };
-    
+
     # Terminal CLI
     atuin.enable = true;
 
@@ -75,11 +76,11 @@
       settings.theme = "gruvbox";
       languages = {
         language = [
-        	{
-        	  name = "rust";
-        	  auto-format = true;
-        	  formatter = { command = "rustfmt"; };
-        	}
+          {
+            name = "rust";
+            auto-format = true;
+            formatter = { command = "rustfmt"; };
+          }
           {
             name = "nix";
             auto-format = true;
@@ -89,7 +90,7 @@
             name = "sql";
             auto-format = true;
             language-servers = [ "sqls" ];
-            formatter = { command = "pg_format"; args = []; };
+            formatter = { command = "pg_format"; args = [ ]; };
             file-types = [ "sql" "pgsql" "psql" ];
           }
         ];

@@ -9,7 +9,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-  
+
     # Component-specific inputs.
     rust-overlay.url = "github:oxalica/rust-overlay";
     nixvim = {
@@ -38,16 +38,17 @@
             modules = [
               ./machines/nucbox-k10.nix
               ./core
-      	      ./users/roles.nix
-      	      home-manager.nixosModules.home-manager {
-      	        home-manager = {
+              ./users/roles.nix
+              home-manager.nixosModules.home-manager
+              {
+                home-manager = {
                   useGlobalPkgs = true;
                   useUserPackages = true;
-            		  backupFileExtension = "backup";
+                  backupFileExtension = "backup";
                   users.kv.imports = [ ./users/kv ];
                   extraSpecialArgs.inputs = inputs;
-            		};
-      	      }
+                };
+              }
             ];
           };
 
