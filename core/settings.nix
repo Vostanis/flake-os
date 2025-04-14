@@ -16,7 +16,7 @@
   environment.variables = {
     # Rust compiler could not find `pkgs.pkg-config`.
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
-  #   OPENSSL_LIB_DIR = "/run/current-system/sw/bin/openssl";
+    #   OPENSSL_LIB_DIR = "/run/current-system/sw/bin/openssl";
   };
 
   # Bootloader.
@@ -24,6 +24,9 @@
     efi.canTouchEfiVariables = true;
     systemd-boot.enable = true;
   };
+
+  # Allow Docker containerisation.
+  virtualisation.docker.enable = true;
 
   # Enable networking.
   networking.networkmanager.enable = true;

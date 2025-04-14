@@ -1,8 +1,8 @@
-{ inputs, ... }:
+{ ... }:
 
 {
   imports = [
-    ./languages
+    ./programming_languages.nix
     ./settings.nix
   ];
 }
