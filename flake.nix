@@ -4,7 +4,8 @@
   inputs = {
     # Core inputs.
     flake-parts.url = "github:hercules-ci/flake-parts";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,13 +26,17 @@
         formatter = pkgs.alejandra;
       };
 
+      # CONFIGURATIONS
+      #
       # The `flake` is made up of 2 variables: `nixosConfigurations` & `homeConfigurations`.
       # 
       # `homeConfigurations` was causing a recursion loop; documentation suggest using nixosModules.
       # Correct modularisation still needed.
       flake = {
-        # Hardware & system settings.
         nixosConfigurations = {
+          # RELAY
+          #
+          # Server configuration
           relay = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs.inputs = inputs;
@@ -52,6 +57,9 @@
             ];
           };
 
+          # TERMINAL
+          #
+          # Network entry point
           terminal = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs.inputs = inputs;
