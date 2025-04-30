@@ -52,11 +52,22 @@
             ];
           };
 
-          laptop = nixpkgs.lib.nixosSystem {
+          terminal = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             modules = [
               ./machines/acer-aspire-vero.nix
               ./core
+              ./users/roles.nix
+              home-manager.nixosModules.home-manager
+              {
+                home-manager = {
+                  useGlobalPkgs = true;
+                  useUserPackages = true;
+                  backupFileExtension = "backup";
+                  users.kv.imports = [ ./users/kv ];
+                  extraSpecialArgs.inputs = inputs;
+                };
+              }
             ];
           };
         };
