@@ -54,6 +54,7 @@
 
           terminal = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
+            specialArgs.inputs = inputs;
             modules = [
               ./machines/acer-aspire-vero.nix
               ./core
