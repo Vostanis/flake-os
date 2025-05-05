@@ -65,6 +65,10 @@
     ghostty = {
       enable = true;
       enableBashIntegration = true;
+      settings = {
+        theme = "DoomOne";
+        font-size = 10;
+      };
     };
     kitty = {
       enable = true;
