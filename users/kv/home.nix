@@ -67,9 +67,9 @@
       enableBashIntegration = true;
       enableZshIntegration = true;
       settings = {
-        background_opacity = 0.5;
-        theme = "DoomOne";
-        font-size = 8;
+        theme = "miasma";
+        font-size = 9;
+        shell = "${pkgs.zsh}/bin/zsh";
       };
     };
 
