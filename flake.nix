@@ -4,9 +4,9 @@
   inputs = {
     # Core inputs.
     flake-parts.url = "github:hercules-ci/flake-parts";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/release-24.11";
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -54,9 +54,21 @@
 
           laptop = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
+            specialArgs.inputs = inputs;
             modules = [
               ./machines/acer-aspire-vero.nix
               ./core
+              ./users/roles.nix
+              home-manager.nixosModules.home-manager
+              {
+                home-manager = {
+                  useGlobalPkgs = true;
+                  useUserPackages = true;
+                  backupFileExtension = "backup";
+                  users.kv.imports = [ ./users/kv ];
+                  extraSpecialArgs.inputs = inputs;
+                };
+              }
             ];
           };
         };
