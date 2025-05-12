@@ -12,6 +12,7 @@
       opencv4
       polars
       psycopg2 # dependency of sqlalchemy
+      python-lsp-server
       requests
       scipy
       scikit-learn
