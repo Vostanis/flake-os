@@ -38,6 +38,7 @@
             modules = [
               ./machines/nucbox-k10.nix
               ./core
+              ./network
               ./users/roles.nix
               home-manager.nixosModules.home-manager
               {

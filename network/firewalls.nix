@@ -8,6 +8,7 @@
     allowedTCPPorts = [
       22 # SSH
       8384 # Syncthing GUI
+      10101 # mx-dwh
       22000 # Syncthing transfer
     ];
 

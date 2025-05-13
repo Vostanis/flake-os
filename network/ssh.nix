@@ -6,11 +6,8 @@
   # <https://nixos.wiki/wiki/SSH_public_key_authentication>
   services.openssh = {
     enable = true;
-    permitRootLogin = "no";
-    port = 22;
-    protocol = "2";
-
     settings = {
+      PermitRootLogin = "no";
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
     };
