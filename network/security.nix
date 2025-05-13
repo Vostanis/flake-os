@@ -17,10 +17,14 @@
     };
   };
 
+  # Antivirus
+  services.clamav.scanner.enable = true;
+  services.clamav.updater.enable = true;
+
   # Additional security tools
   environment.systemPackages = with pkgs; [
     chkrootkit # detect rootkits (i.e., system already compromised)
-    clamav # antivirus
+    clamav # Antivirus
     vulnix # vulnerability scanner
   ];
 }
