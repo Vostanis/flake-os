@@ -59,6 +59,7 @@
             modules = [
               ./machines/acer-aspire-vero.nix
               ./core
+              ./network
               ./users/roles.nix
               home-manager.nixosModules.home-manager
               {

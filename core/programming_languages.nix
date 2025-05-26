@@ -5,18 +5,29 @@
   environment.systemPackages = with pkgs; [
     # Python (version 3.12)
     (python312.withPackages (ps: with ps; [
-      altair
+      # Package manager
       jupyter
-      matplotlib
-      numpy
-      opencv4
-      polars
-      psycopg2 # dependency of sqlalchemy
+
+      # LSP
       python-lsp-server
+
+      # HTTP
       requests
+
+      # Data handlers
+      pandas
+      numpy
+      sqlalchemy
+      psycopg2
+
+      # Visuals
+      altair
+      matplotlib
+
+      # ML/DL
+      opencv4
       scipy
       scikit-learn
-      sqlalchemy
       torch
       torchvision
       xgboost

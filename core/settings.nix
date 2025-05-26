@@ -4,7 +4,7 @@
   # Version
   system.stateVersion = "24.11";
 
-  # Enable nix flakes.
+  # Enable nix flaues.
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Allow unfree packages (e.g., Spotify, Teamview, etc.)
@@ -16,8 +16,15 @@
   environment.variables = {
     # Rust compiler could not find `pkgs.pkg-config`.
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
-    #   OPENSSL_LIB_DIR = "/run/current-system/sw/bin/openssl";
   };
+
+  # Prevent laptop from sleeping
+  systemd.sleep.extraConfig = ''
+    AllowSuspend=no
+    AllowHibernation=no
+    AllowHybridSleep=no
+    AllowSuspendThenHibernate=no
+  '';
 
   # Bootloader.
   boot.loader = {
@@ -36,7 +43,6 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_GB.UTF-8";
     LC_IDENTIFICATION = "en_GB.UTF-8";
