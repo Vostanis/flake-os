@@ -23,6 +23,8 @@
       # Visuals
       altair
       matplotlib
+      plotly
+      seaborn
 
       # ML/DL
       opencv4
@@ -34,10 +36,17 @@
     ]))
 
     # Rust
-    rust-bin.stable.latest.default
+    (rust-bin.stable.latest.default.override {
+      targets = [ "wasm32-unknown-unknown" ];
+    })
     openssl
     pkg-config
     gcc
+    trunk
+
+    # Web Dev
+    nodejs
+    typescript
 
     # Zig
     zig

@@ -26,6 +26,8 @@
       neofetch
       htop
 
+      diesel-cli
+      sqlite
       postgresql
       pgcli
       wasm-pack
@@ -33,7 +35,7 @@
       cargo-flamegraph
       docker
       docker-compose
-      kubernetes
+      cargo-leptos
 
       # LSPs
       rust-analyzer
